@@ -1,0 +1,41 @@
+using System;
+using UnityEngine;
+
+public class Health
+{
+
+    float _health = 10;
+    public float actualHealth => _health;
+    float _maxHealth = 20;
+    float _healSpeed=3;
+    Action _dieAction;
+
+    public Health(float health, float maxHealth, float healSpeed, Action dieAction)
+    {
+        this._health = health;
+        this._maxHealth = maxHealth;
+        this._healSpeed = healSpeed;
+        this._dieAction = dieAction;
+        _health = _maxHealth;
+    }
+
+    public void AddHealth()
+    {
+       _health += Time.deltaTime * _healSpeed;
+       _health  = Mathf.Clamp(_health, 0, _maxHealth);
+    }
+
+    public void SubstractLife(int value)
+    {
+        _health -= value;
+        _health = Mathf.Clamp(_health, 0, _maxHealth);
+        if (_health == 0)
+        {
+            _dieAction();
+        }
+    }
+
+    public void SetMaxHealth() => _health = _maxHealth;
+   
+
+}

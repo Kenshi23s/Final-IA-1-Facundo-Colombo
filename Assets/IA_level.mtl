@@ -1,0 +1,17 @@
+newmtl ProBuilderDefault
+map_Kd GridBox_Default.png
+Kd 1 1 1
+d 1
+
+newmtl HealZone
+Kd 0.176651 1 0
+d 1
+
+newmtl MidZone
+Kd 1 0 0
+d 1
+
+newmtl MidZone_-_copia
+Kd 1 0.8116023 0
+d 1
+
